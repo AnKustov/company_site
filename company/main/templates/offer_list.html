@@ -1,0 +1,25 @@
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    {% for offer in offers %}
+    <div class="col-lg-3 mb-4">
+      <div class="offer-card mb-3 d-flex flex-column">
+        {% if offer.image %}
+        <img src="{{ offer.image.url }}" class="card-img-top" alt="{{ offer.name }}">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ offer.name }}</h5>
+          <hr style="border-top: 1px solid #00008b; margin: 10px 0;">
+          <p class="card-text"> {{ offer.description|truncatechars_html:150|safe }}</p>
+        </div>
+        <div class="text-center mb-4">
+          <a href="{% url 'offer_detail' offer.id %}" class="btn btn-custom">Details</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

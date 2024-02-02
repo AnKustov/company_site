@@ -1,0 +1,218 @@
+@font-face {
+  font-family: 'UbuntuFonts';
+    src: url('/static/fonts/Ubuntu-Light.ttf') format('ttf'),
+        url('/static/fonts/Ubuntu-Bold.ttf') format('ttf'),
+        url('/static/fonts/Ubuntu-BoldItalic.ttf') format('ttf'),
+        url('/static/fonts/Ubuntu-Italic.ttf') format('ttf'),
+        url('/static/fonts/Ubuntu-LightItalic.ttf') format('ttf'),
+        url('/static/fonts/Ubuntu-Medium.ttf') format('ttf'),
+        url('/static/fonts/Ubuntu-MediumItalic.ttf') format('ttf'),
+        url('/static/fonts/Ubuntu-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body, html {
+  /* background-image: url("/static/images/background.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'UbuntuFonts', sans-serif;
+  height: 100%;
+}
+
+.navbar {
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+.navbar.scrolled,
+.dropdown-menu {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.navbar.scrolled .navbar-nav .nav-item .nav-link,
+.navbar.scrolled .navbar-nav .nav-item .nav-link:hover {
+  color: white;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: black;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: black;
+  transform: translateY(-5px);
+}
+
+.nav-item.dropdown .nav-link.dropdown-toggle::after {
+  content: none;
+}
+
+.navbar-brand img {
+  max-width: 50px;
+  height: auto;
+}
+
+#search-header {
+  position: fixed;
+  top: 100px;
+  width: 100%;
+  background-color: transparent;
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #00008b; 
+  border-radius: 0%; 
+}
+
+.dropdown-item {
+  color: #ffffff;
+}
+
+.counter-card {
+  height: 300px;
+  width: auto;
+  background-color: transparent;
+  color: #ffffff;
+  border-radius: 0%;
+  border: none;
+}
+
+.history-card,
+.mission-card {
+  margin-top: 150px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: none;
+  border-radius: 0%;
+  color: #ffffff;
+}
+
+.assortment-card,
+.project-card,
+.worker-card,
+.offer-card,
+.category-card,
+.product-card {
+  margin-top: 30px;
+  display: flex;
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  border-radius: 0%;
+  border: none;
+  height: 600px;
+  min-height: 450px;
+  box-shadow: 0 0 10px rgb(0, 0, 139, 0.2);
+}
+
+.card-img-top {
+  border-radius: 0%;
+  border: none;
+}
+
+.project-card.hidden {
+  display: none;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.btn-custom {
+  background-color: #00008b;
+  border-radius: 0%;
+  color: #ffffff;
+  height: auto;
+  width: auto;
+}
+
+.btn-custom:hover {
+  color: #ffffff;
+}
+
+.btn:focus,
+.form-control:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  border-color: #00008b;
+  border: 1px solid #00008b; 
+}
+
+.card-body {
+  height: 100%;
+  border-radius: 0%;
+}
+
+
+/* ПОЯВЛЯЮЩИЙСЯ БЛОК OFFERS, Realized Projects */
+@keyframes fade-in {
+  0% {
+    transform: translateY(70px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.counter-card,
+.offer-card,
+.project-card,
+.all-projects-btn {
+  animation: fade-in 3s ease forwards;
+}
+
+.contact-block {
+  position: fixed;
+  top: 0;
+  left: -50%; /* Скрытый блок слева */
+  width: 50%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: antiquewhite;
+  transition: left 1.5s;
+  overflow: hidden;
+  z-index: 1111;
+}
+
+.department-info {
+  color: #ffffff;
+  column-count: 2;
+  column-gap: 20px;
+}
+
+.show-block {
+  left: 0; /* Показать блок контактов при добавлении класса */
+}
+
+.contact-info h5 {
+  text-decoration: underline;
+  }
+
+.footer {
+  height: auto;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+  transition: all 5s ease; /* Добавим плавную транзицию */
+}
+
+/* Когда футер видим, установим его нормальную высоту и полную прозрачность */
+.footer.visible {
+  opacity: 1;
+}
+
+.footer-brand img {
+  max-height: 150px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}

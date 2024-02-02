@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% for history_item in history_data %}
+  <div class="history-card mb-3 d-flex flex-column">
+    <div class="card-body flex-grow-1">{{ history_item.description|safe }}</div>
+  </div>
+{% endfor %} 
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="project-detail-page mx-4" 
+style="margin-top: 150px;">
+  <div class="card-content" 
+  style="background-color: rgba(0, 0, 0, 0.9); color: aliceblue;">
+    <p >{{ offer.description|safe }}</p>
+  </div>
+</div>
+
+<div class="spacer" style="margin-bottom: 30px"></div>
+
+{% endblock %}
+

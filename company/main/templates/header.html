@@ -1,0 +1,78 @@
+{% load static %}
+{% block content %}
+
+<title>{% block title %}{% endblock %}</title>
+<link rel="icon" type="image/png" href="{{ company.favicon.url }}">
+
+
+<header class="navbar navbar-expand-lg fixed-top" id="main-header">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'main' %}">
+            <img src="\static\images\logo.png" alt="Logo" />
+        </a>
+        <div class="navbar-collapse justify-content-center">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About us
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                        <a class="dropdown-item" href="{% url 'history_page' %}">History</a>
+                        <a class="dropdown-item" href="{% url 'mission_page' %}">Mission</a>
+                        <a class="dropdown-item" href="{% url 'worker-list' %}">Team</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="solutionsDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Solutions
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="solutionsDropdown">
+                        <a class="dropdown-item" href="#">For food Retail</a>
+                        <a class="dropdown-item" href="#">For non-food Retail</a>
+                        <a class="dropdown-item" href="#">For pharmacy Retail</a>
+                        <a class="dropdown-item" href="#">For Logistics</a>
+                        <a class="dropdown-item" href="#">For Manufacturing</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="contact-link">Departments</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div class="spacer" style="margin-bottom: 80px"></div>
+
+<header class="second-header" id="search-header">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form class="search-form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" />
+                        <div class="input-group-append">
+                            <button class="btn btn-custom" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% endblock %}
+
+
+<!-- МЕНЮ КОНТАКТОВ -->
+<div class="contact-block" id="contact-block">
+    <h4 class="mx-4 text-center"><strong>Departments</strong></h4>
+    <div class="contact-info mx-4">
+        {% include 'department_info.html' %}
+    </div>
+</div>

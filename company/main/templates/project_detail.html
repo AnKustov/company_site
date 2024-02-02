@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="project-detail-page mx-4" 
+style="margin-top: 150px;">
+  {% if project.image %}
+  <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.name }}" style="border-radius: 0%;">
+  {% endif %}
+  <div class="card-content" 
+  style="background-color: rgba(0, 0, 0, 0.9); color: aliceblue;">
+    <h5 class="card-title">{{ project.name }}</h5>
+    <p class="card-text mx-2"><strong>Client:</strong> {{ project.client }}</p>
+    <p class="card-text mx-2"><strong>Adress:</strong> {{ project.adress }}</p>
+    <p class="card-text mx-2"><strong>Realization Date:</strong> {{ project.realization_date }}</p>
+    <div class="card-text mx-2">{{ project.description|safe }}</div>
+  </div>
+</div>
+
+<div class="spacer" style="margin-bottom: 30px"></div>
+
+{% endblock %}
+

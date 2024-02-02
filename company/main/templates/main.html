@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html>
+
+<body>
+
+  <div class="spacer" style="margin-bottom: 200px"></div>
+  <div class="main-block">
+    <!-- СЧЕТЧИК ОПЫТА -->
+    {% include 'experience_counter.html' %}
+
+    <div class="spacer" style="margin-bottom: 10px"></div>
+
+    <!-- OFFERS -->
+    {% include 'offer_list.html' %}
+
+    <div class="spacer" style="margin-bottom: 30px"></div>
+
+    <hr style="border-top: 1px solid #00008b; margin: 10px 0;">
+
+    <div class="spacer" style="margin-bottom: 30px"></div>
+
+    <!-- PROJECTS -->
+    {% include 'project_list.html' %}
+
+    <div class="spacer" style="margin-bottom: 50px"></div>
+
+  </div>
+
+  <div class="spacer" style="margin-bottom: 200px"></div>
+
+</body>
+
+</html>
+
+{% endblock %}

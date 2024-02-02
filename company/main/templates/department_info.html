@@ -1,0 +1,20 @@
+{% block content %}
+
+<html>
+
+<body>
+    <div class="department-info">
+    {% for department in departments %}
+        <h5 class="mb-1">{{ department.name }}</h5>
+        <p class="mb-1"><strong>Телефон:</strong> {{ department.phones }}</p>
+        <p class="mb-1"><strong>E-mail:</strong> {{ department.emails }}</p>
+        {% if not forloop.last %}
+            <hr style="border-top: 1px solid #00008b; margin: 10px 0;">
+        {% endif %}
+    {% endfor %}
+    </div>
+</body>
+
+</html>
+
+{% endblock %}

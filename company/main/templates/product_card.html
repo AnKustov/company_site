@@ -1,0 +1,22 @@
+{% load static %}
+
+
+<div class="product-card mb-3 d-flex flex-column">
+    {% with product_images=product.productimage_set.all %}
+    {% if product_images %}
+    {% with random_image=product_images|random %}
+    <img src="{{ random_image.image.url }}" class="card-img-top" alt="{{ product.name }} Image">
+    {% endwith %}
+    {% else %}
+    <img src="/static/images/no_image.jpg" class="card-img-top" alt="Placeholder Image">
+    {% endif %}
+    {% endwith %}
+
+    <div class="card-body">
+        <h6 class="card-title"><a href="#">{{ product.name }}</a></h6>
+        <p class="card-text">{{ product.description|truncatechars_html:150|safe }}</p>
+    </div>
+    <div class="text-center">
+        <a href="#" class="btn btn-custom">Details</a>
+    </div>
+</div>

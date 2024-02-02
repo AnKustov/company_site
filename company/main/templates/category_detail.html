@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ category.name }}</title>
+</head>
+
+<body>
+    <div class="text-center" style="margin-top: 150px;">
+        <h4>{{ category.name }}</h4>
+    </div>
+
+    <div class="row mt-5 mb-5">
+        <div class="col-lg-3">
+            {% if category.image %}
+            <img src="{{ category.image.url }}" alt="{{ category.name }} Image" class="img-fluid">
+            {% endif %}
+        </div>
+        <div class="col-lg-9 text-center">
+            <p>{{ category.description|safe }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            {% if products %}
+            <h4 class="text-center">Товари в категориії {{ category.name }}:</h4>
+            <div class="container mt-5">
+                <div class="row">
+                    {% for product in page_obj %}
+                    <div class="col-md-3 mb-4">
+                        {% include 'product_card.html' %}
+                    </div>
+                    {% endfor %}
+
+                    <div class="pagination-container d-flex justify-content-center">
+                        <nav aria-label="Страницы">
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link text-custom-color" href="?page=1" aria-label="Первая страница">
+                                        << </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link text-custom-color"
+                                        href="?page={{ page_obj.previous_page_number }}"
+                                        aria-label="Предыдущая страница">
+                                        < </a>
+                                </li>
+                                {% endif %}
+
+                                {% for page in page_obj.paginator.page_range %}
+                                <li class="page-item {% if page == page_obj.number %}active{% endif %}">
+                                    <a class="page-link {% if page == page_obj.number %}custom-active-page{% else %}text-custom-color {% endif %}"
+                                        href="?page={{ page }}">{{ page }}</a>
+                                </li>
+                                {% endfor %}
+
+                                {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link text-custom-color" href="?page={{ page_obj.next_page_number }}"
+                                        aria-label="Следующая страница"> > </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link text-custom-color"
+                                        href="?page={{ page_obj.paginator.num_pages }}" aria-label="Последняя страница">
+                                        >> </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <h4 class="text-center">В даній категорії товарів немає</h4>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>
+{% endblock %}

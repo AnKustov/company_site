@@ -1,0 +1,91 @@
+{% load static %}
+
+{% block content %}
+
+<footer class="footer" id="main-footer">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-between">
+            <div class="col-md-2 d-flex align-items-center justify-content-center">
+                <a class="footer-brand" href="{% url 'main' %}">
+                    <div class="logo-container text-center">
+                        <img src="{{ company.logo_image.url }}" alt="Logo" class="logo-image">
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <div class="spacer" style="margin-bottom: 20px"></div>
+                <address style="color: #FFFFFF; font-size: 12px;">
+                    <title="Назва"><strong>{{ company.legal_name|default:"" }}</strong>
+                    <br>
+                    <title="ЕДРПОУ"><strong>ЄДРПОУ:</strong>{{ company.edrpou|default:"" }}<br>
+                    <title="Юр.адреса"><strong>Юридична адреса:</strong>{{ company.legal_address|default:""}}<br>
+                    <title="Рахунок"><strong>Розрахунковий рахунок:</strong>{{ company.account|default:""}}<br>
+                    <title="ІПН"><strong>ІПН:</strong>{{ company.tax_number|default:"" }}<br>
+                    <title="Св.платника"><strong>Свідоцтво платника єдиного податку, №:</strong>{{ company.single_tax_payer_certificate|default:"" }}<br>
+                    <title="Телефон"><strong>Тел:</strong>{{ company.phones|default:"" }}<br>
+                    <title="Пошта"><strong>E-Mail:</strong>{{ company.emails|default:""}}<br>
+                    <div class="spacer" style="margin-bottom: 10px"></div>
+                    <a href="#">
+                        <img src="\static\images\viber.png" alt="Viber" width="auto"
+                            height="36px">
+                    </a>
+                    <a href="#">
+                        <img src="\static\images\telegram.png" alt="Telegram"
+                            width="auto" height=36">
+                    </a>
+                    <a href="#">
+                        <img src="\static\images\whatsapp.png" alt="WhatsApp"
+                            width="auto" height="36px">
+                    </a>
+                    <a href="#">
+                        <img src="\static\images\skype.png" alt="Skype" width="auto"
+                            height="36px">
+                    </a>
+                    <a href="#">
+                        <img src="\static\images\instagram.png" alt="Instagram"
+                            width="auto" height="36px">
+                    </a>
+                    <a href="#">
+                        <img src="\static\images\facebook.png" alt="Facebook"
+                            width="auto" height="36px">
+                    </a>
+                    <a href="#">
+                        <img src="\static\images\linkedin.png" alt="Linkedin"
+                            width="auto" height=36">
+                    </a>
+                    <a href="#">
+                        <img src="\static\images\reddit.png" alt="Reddit" width="auto"
+                            height="36px">
+                    </a>
+                    <a href="#">
+                        <img src="\static\images\twitter.png" alt="Twitter" width="auto"
+                            height="36px">
+                    </a>
+                    <a href="#">
+                        <img src="\static\images\youtube.png" alt="Youtube" width="auto"
+                            height="36px">
+                    </a>
+
+                </address>
+            </div>
+
+            <div class="col-md-4 mt-5">
+                <ul class="list-unstyled" style="padding-left: 100px;">
+                    <li><a class="text-light" href="#">Про проект</a></li>
+                    <li><a class="text-light" href="#">Статті</a></li>
+                    <li><a class="text-light" href="#">Доставка та оплата</a></li>
+                    <li><a class="text-light" href="#">Гарантія та сервіс</a></li>
+                    <li><a class="text-light" href="#">Наші магазини</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 mt-5 m-lg-auto">
+                <button id="scrollToTopBtn" class="btn">
+                    <img src="/static/images/up-arrow.png" alt="Up"                    style="height: 80px; width: auto;">
+                </button>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% endblock %}
